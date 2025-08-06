@@ -159,24 +159,6 @@ def basic_auth() -> Tuple[int, str, str]:
     # Tu código aquí
     pass
 
-
-# =============================================================================
-# 🧪 CASOS DE PRUEBA - TESTING
-# =============================================================================
-
-def slow_endpoint() -> Tuple[int, str, int, float]:
-    """
-    Enunciado: Probar la respuesta del sistema con una demora controlada.
-    
-    Entrada: ?delay=3
-    Resultado esperado: Código 200 con una respuesta simuladamente lenta (demora de 3 segundos)
-    
-    Retorna: (status_code, data, delay, elapsed_time) desde la respuesta a la petición
-    """
-    # Tu código aquí
-    pass
-
-
 # =============================================================================
 # FUNCIÓN PRINCIPAL
 # =============================================================================
@@ -208,11 +190,6 @@ def main():
             secure_endpoint_with_headers,
             bearer_token_auth,
             basic_auth,
-        ]),
-        
-        # Testing
-        ("Testing", [
-            slow_endpoint
         ])
     ]
     
@@ -259,3 +236,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
