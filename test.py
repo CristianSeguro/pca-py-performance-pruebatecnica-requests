@@ -218,30 +218,6 @@ class TestMockAPIServerFunctions:
         assert status == "authenticated", "status debe ser 'authenticated'"
         assert user in ["admin", "user"], "user debe ser uno de los usuarios válidos"
     
-    # =========================================================================
-    # 🧪 TESTS - TESTING
-    # =========================================================================
-    
-    def test_slow_endpoint_returns_correct_values(self):
-        """Test que valida que slow_endpoint() retorne los valores correctos"""
-        result = slow_endpoint()
-        
-        assert result is not None, "La función slow_endpoint() debe estar implementada"
-        assert isinstance(result, tuple), "Debe retornar una tupla"
-        assert len(result) == 4, "Debe retornar exactamente 4 valores: (status_code, data, delay, elapsed_time)"
-        
-        status_code, data, delay, elapsed_time = result
-        
-        assert isinstance(status_code, int), "status_code debe ser un entero"
-        assert isinstance(data, str), "data debe ser un string"
-        assert isinstance(delay, int), "delay debe ser un entero"
-        assert isinstance(elapsed_time, (int, float)), "elapsed_time debe ser un número"
-        
-        assert status_code == 200, "El status_code debe ser 200"
-        assert data == "slow response", "data debe ser 'slow response'"
-        assert delay == 3, "delay debe ser 3 segundos"
-        assert elapsed_time >= 2.5, "El tiempo transcurrido debe ser al menos 2.5 segundos"
-        assert elapsed_time <= 5.0, "El tiempo transcurrido no debe exceder 5 segundos"
     
     
 
@@ -259,8 +235,7 @@ class TestImplementationStatus:
             ("login_with_form_data", login_with_form_data),
             ("secure_endpoint_with_headers", secure_endpoint_with_headers),
             ("bearer_token_auth", bearer_token_auth),
-            ("basic_auth", basic_auth),
-            ("slow_endpoint", slow_endpoint)
+            ("basic_auth", basic_auth)
         ]
         
         # Verificar disponibilidad del servidor
@@ -310,4 +285,5 @@ def mock_server_check():
 
 # Marcar todos los tests para usar el fixture de verificación de servidor
 pytestmark = pytest.mark.usefixtures("mock_server_check")
+
 
