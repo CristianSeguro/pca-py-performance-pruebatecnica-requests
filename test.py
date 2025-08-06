@@ -14,8 +14,8 @@ Para ejecutar:
 
 import pytest
 import requests
-# from main import *
-from ejemplo_solucion import *
+from main import *
+# from ejemplo_solucion import *
 
 
 class TestMockAPIServerFunctions:
@@ -310,3 +310,4 @@ def mock_server_check():
 
 # Marcar todos los tests para usar el fixture de verificación de servidor
 pytestmark = pytest.mark.usefixtures("mock_server_check")
+
